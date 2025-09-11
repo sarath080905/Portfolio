@@ -14,7 +14,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex gap-4">
           <a
-            href="https://github.com/"
+            href="https://github.com/sarath080905/"
             target="_blank"
             rel="noreferrer"
             className="hover:underline flex items-center gap-2"
@@ -23,7 +23,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.comhttps://www.linkedin.com/in/sarathkumar-s-293440356/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B6uwLohH0TWq3rv30j1bYgA%3D%3D/"
             target="_blank"
             rel="noreferrer"
             className="hover:underline flex items-center gap-2"
@@ -32,7 +32,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="mailto:you@example.com"
+            href="mailto:sarath2036@gmail.com"
             className="hover:underline flex items-center gap-2"
           >
             <FontAwesomeIcon icon={faEnvelope} /> Email
