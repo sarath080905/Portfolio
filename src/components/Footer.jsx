@@ -23,7 +23,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/sarathkumar-s-293440356/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B6uwLohH0TWq3rv30j1bYgA%3D%3D"
+            href="https://www.linkedin.com/in/sarathkumar-s-293440356/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BTr29U6T1QF6zBUk4AAurMw%3D%3D"
             target="_blank"
             rel="noreferrer"
             className="hover:underline flex items-center gap-2"

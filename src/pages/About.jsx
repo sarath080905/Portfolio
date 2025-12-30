@@ -65,7 +65,7 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="space-y-10">
+        <div className="space-y-10 border pt-10 pb-6 px-6 bg-white bg-opacity-70 rounded-2xl shadow-inner">
           <h3 className="text-2xl font-bold text-gray-800 text-center">
             Skills
           </h3>
@@ -90,7 +90,7 @@ const About = () => {
               >
                 <SkillCard
                   {...s}
-                  className="p-5 bg-white shadow-md hover:shadow-xl rounded-2xl border border-gray-100 transition-transform transform hover:-translate-y-1"
+                  className="p-5 shadow-md hover:shadow-xl rounded-2xl border border-gray-200 transition-transform transform hover:-translate-y-1"
                 />
               </motion.div>
             ))}

@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 
 const Layout = () => {
     return (
-        <div className="background ">
+        <div className="background bg-gradient-to-b from-blue-50 to-white">
             {/* Firefly animation in the background */}
             {/* <FireflyBackground /> */}
             
