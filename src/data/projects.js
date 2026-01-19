@@ -6,8 +6,25 @@ const projects = [
     image: "assets/img-1.jpg",
     github: "https://github.com/sarath080905/Shop-Cart-Project.git",
     demo: "",
-    nodemo:"Ther will be a demo link soon"
+    nodemo: "Ther will be a demo link soon"
   },
+  {
+    title: "Photo Studio Portfolio Website",
+    description: "A modern and responsive photo studio portfolio website that showcases photography services, featured galleries, client albums, and contact details. Users can explore different photo collections, view high-quality images, and easily connect with the studio. Built using modern React features with smooth navigation, centralized state management, and a visually rich UI styled using Tailwind CSS.",
+    tech: [
+      "React.js",
+      "React Router DOM",
+      "Context API",
+      "Tailwind CSS",
+      "Vite",
+      "React Icons"
+    ],
+    image: "assets/img-5.png",
+    github: "https://github.com/sarath080905/Photo-Studio-Website.git",
+    demo: "https://photo-studio-wheat.vercel.app/",
+    nodemo: ""
+  }
+  ,
   {
     title: "Spin the Wheel – Betting Game",
     description: "A command-line casino-style game with deposit, betting, and wheel spin features. Implemented logic using loops, conditionals, and the random module to manage balance and validate inputs.",
@@ -15,7 +32,7 @@ const projects = [
     image: "assets/img-2.jpg",
     github: "https://github.com/sarath080905/Python-Project-Spin-the-Wheel-Betting-Game-.git",
     demo: "",
-    nodemo:"This is a local python project, no demo available"
+    nodemo: "This is a local python project, no demo available"
 
   },
   {
@@ -25,7 +42,7 @@ const projects = [
     image: "assets/img-3.jpg",
     github: "https://github.com/sarath080905/SQL-Projects-.git",
     demo: "",
-    nodemo:"This is a local database project, no demo available"
+    nodemo: "This is a local database project, no demo available"
   },
   {
     title: "Hotel & Restaurant Management Web App",
@@ -34,7 +51,7 @@ const projects = [
     image: "assets/img-4.jpg",
     github: "https://github.com/sarath080905/Hotel-Restaurant-Management-Web-App.git",
     demo: "",
-    nodemo:"Ther will be a demo link soon"
+    nodemo: "Ther will be a demo link soon"
   }
 ]
 
