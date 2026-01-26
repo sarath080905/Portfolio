@@ -7,7 +7,7 @@ import NavigationButtons from "../components/NavigationButtons";
 const About = () => {
   return (
     <section className="relative py-16 overflow-hidden bg-gradient-to-b from-gray-50/90 to-white/90 border-2 border-blue-400 rounded-3xl shadow-lg">
-      
+
       {/* 🎨 Animated Background Layer */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-100 opacity-40"
@@ -48,7 +48,7 @@ const About = () => {
 
       {/* Foreground Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 space-y-16">
-        
+
         {/* About Me Section */}
         <div className="text-center space-y-6">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
@@ -97,6 +97,49 @@ const About = () => {
           </motion.div>
         </div>
       </div>
+
+      <br />
+
+      {/* Add Studies Section */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 space-y-16 mt-10 mb-10">
+        <div className="text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
+            My Studies
+          </h2>
+          <p className="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
+            My academic journey reflects a strong interest in computer applications and problem-solving. As a fresher, I am eager to apply my technical knowledge, learn continuously, and contribute effectively to real-world projects.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+
+          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold text-blue-600">M.C.A – Master of Computer Applications</h3>
+            <p className="text-gray-700 mt-2">Jun 2024 – Present</p>
+            <p className="text-gray-600">Bharathidasan University, Tiruchirappalli</p>
+          </div>
+
+          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold text-blue-600">B.C.A – Bachelor of Computer Applications</h3>
+            <p className="text-gray-700 mt-2">Jun 2021 – May 2024</p>
+            <p className="text-gray-600">Adhiparasakthi College of Arts and Science, Vellore</p>
+          </div>
+
+          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold text-blue-600">H.S.C – Higher Secondary (12th)</h3>
+            <p className="text-gray-700 mt-2">Jun 2019 – May 2021</p>
+            <p className="text-gray-600">Govt. Higher Secondary School, Vembakkam, Thiruvannamalai</p>
+          </div>
+
+          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold text-blue-600">S.S.L.C – Secondary School (10th)</h3>
+            <p className="text-gray-700 mt-2">Jun 2017 – May 2019</p>
+            <p className="text-gray-600">Govt. Higher Secondary School, Vembakkam, Thiruvannamalai</p>
+          </div>
+
+        </div>
+      </div>
+
 
       {/* ✅ Fixed Navigation Buttons */}
       <div className="fixed bottom-14 left-0 right-0 flex justify-between px-6 z-20">
