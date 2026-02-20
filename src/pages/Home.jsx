@@ -117,7 +117,7 @@ const Home = () => {
         {/* Resume Button */}
         <motion.div variants={itemVariants} className="mt-10">
           <a
-            href="https://drive.google.com/file/d/1fHSEUxtAouK9pxOxvV81EKJrmyEMZYBO/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1wRC5t5oipV5Z1Wai7x7qrNNwoiPlbJhs/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-700 hover:shadow-xl hover:scale-105 transition-all"
