@@ -1,7 +1,6 @@
 import "../App.css";
 import { motion } from "framer-motion"
 import posts from '../data/Blog'
-import NavigationButtons from "../components/NavigationButtons";
 // import FireflyBackground from "../layout/Animation";
 
 const Blog = () => {
@@ -39,10 +38,6 @@ const Blog = () => {
           </motion.article>
         ))}
       </div>
-       {/* ✅ Fixed Navigation Buttons */}
-        <div className="fixed bottom-14 left-0 right-0 flex justify-between px-6">
-          <NavigationButtons />
-        </div>
     </section>  
   )
 }

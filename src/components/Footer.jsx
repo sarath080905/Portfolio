@@ -7,8 +7,8 @@ import "../App.css";
 const Footer = () => {
   return (
 
-    <footer className="border-t mt-10 bg-[rgba(161,176,183,0.8)]">
-      <div className="max-w-[var(--max)] mx-auto py-4 px-20 text-sm flex flex-col md:flex-row items-center justify-between gap-2">
+    <footer className="border-t mt-10 bg-white/40 backdrop-blur">
+      <div className="max-w-[var(--max)] mx-auto py-4 px-4 sm:px-6 lg:px-12 text-sm flex flex-col md:flex-row items-center justify-between gap-2">
         <p>© {new Date().getFullYear()} Designed & developed by Sarath.</p>
         
         {/* Social Links */}
