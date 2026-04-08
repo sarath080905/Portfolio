@@ -1,152 +1,102 @@
-import { motion } from "framer-motion"
-import SkillCard from '../components/SkillCard'
-import skills from '../data/skills'
-import "../App.css";
-import NavigationButtons from "../components/NavigationButtons";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import ProfileAvatar from "../components/ProfileAvatar";
+import Reveal from "../components/Reveal";
 
 const About = () => {
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-to-b from-gray-50/90 to-white/90 border-2 border-blue-400 rounded-3xl shadow-lg">
-
-      {/* 🎨 Animated Background Layer */}
+    <div className="relative overflow-hidden rounded-3xl border border-white/40 dark:border-slate-700 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/60">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-blue-200 via-blue-300 to-blue-100 opacity-40"
-        style={{ backgroundSize: "200% 200%" }}
         initial={{ backgroundPosition: "0% 50%" }}
         animate={{ backgroundPosition: "100% 50%" }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      ></motion.div>
+        transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 bg-gradient-to-r from-indigo-500/25 via-purple-500/20 to-pink-500/20 opacity-60"
+        style={{ backgroundSize: "200% 200%" }}
+        aria-hidden="true"
+      />
 
-      {/* 🌊 Extra floating elements (optional bubbles/shapes) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute bg-blue-400 rounded-full opacity-10 blur-2xl"
-            style={{
-              width: `${Math.random() * 60 + 40}px`,
-              height: `${Math.random() * 60 + 40}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -80, 0],
-              x: [0, Math.random() * 50 - 25, 0],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+      <div className="relative z-10 px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
+        <Reveal>
+          <section aria-labelledby="about-title">
+            <h2 id="about-title" className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">
+              About
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-3 max-w-2xl">
+              I’m a frontend-first developer who builds premium-looking UIs with clean structure, responsive layout, and smooth interactions.
+            </p>
+
+            <div className="mt-8 grid lg:grid-cols-2 gap-8 items-start">
+              <div className="space-y-5">
+                <div className="rounded-2xl bg-white/60 dark:bg-slate-900/70 border border-white/50 dark:border-slate-700 backdrop-blur p-6 shadow-sm flex items-center gap-4">
+                  <ProfileAvatar name="Sarathkumar" size={96} />
+                  <div>
+                    <p className="text-lg font-bold text-gray-900 dark:text-white">Sarathkumar</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Frontend Developer • UI/UX-minded</p>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl bg-white/60 dark:bg-slate-900/70 border border-white/50 dark:border-slate-700 backdrop-blur p-6 shadow-sm">
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Skills</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                    <li>React + Tailwind for modern, consistent UI.</li>
+                    <li>Framer Motion for subtle, professional animations.</li>
+                    <li>Responsive design with accessibility in mind.</li>
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl bg-white/60 dark:bg-slate-900/70 border border-white/50 dark:border-slate-700 backdrop-blur p-6 shadow-sm">
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Experience Highlights</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                    <li>Built portfolio + full app projects (e-commerce, booking, photo studio).</li>
+                    <li>Worked with routing, state patterns, and API-style integration flows.</li>
+                    <li>Delivered card-based UI and user-friendly interactions.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <div className="rounded-2xl bg-white/60 dark:bg-slate-900/70 border border-white/50 dark:border-slate-700 backdrop-blur p-6 shadow-sm">
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Goals</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                    <li>Ship production-quality interfaces that convert.</li>
+                    <li>Improve backend + database depth to build complete solutions.</li>
+                    <li>Keep learning modern frontend patterns and UX best practices.</li>
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border border-white/60 bg-white/70 dark:bg-slate-900/80 dark:border-slate-700 backdrop-blur p-6 shadow-sm">
+                  <h3 className="font-semibold text-gray-900 dark:text-white">Why Hire Me</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">
+                    You’ll get clean implementation, quick iteration, and UI polish that looks premium.
+                  </p>
+                  <ul className="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                    <li>Consistent typography + spacing and attention to interaction states.</li>
+                    <li>Performance-aware UI decisions (lazy loading, lightweight motion).</li>
+                    <li>Easy collaboration: clear progress and practical deliverables.</li>
+                  </ul>
+
+                  <div className="mt-5 flex flex-col sm:flex-row gap-3">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 transition"
+                    >
+                      Hire Me
+                    </Link>
+                    <Link
+                      to="/projects"
+                      className="inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-gray-900 dark:text-gray-100 bg-white/70 dark:bg-slate-900/85 border border-gray-200 dark:border-slate-700 hover:bg-white dark:hover:bg-slate-900 transition"
+                    >
+                      View Projects
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Reveal>
       </div>
+    </div>
+  );
+};
 
-      {/* Foreground Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 space-y-16">
-
-        {/* About Me Section */}
-        <div className="text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
-            About Me
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
-            I’m a <span className="font-semibold text-blue-600">Beginner developer</span> who loves building delightful web apps 🚀.
-            As a fresher, I am continuously learning modern technologies like
-            <strong className="text-gray-800"> HTML, CSS, Tailwind, JavaScript, React, Python, and SQL</strong>
-            to build scalable web applications. 🌟
-            I bring dedication, adaptability, and a strong will to grow in the tech field 🙌.
-            I’m eager to contribute my skills, learn from real-world projects, and build a successful career in IT.
-          </p>
-        </div>
-
-        {/* Skills Section */}
-        <div className="space-y-10 border pt-10 pb-6 px-6 bg-white bg-opacity-70 rounded-2xl shadow-inner">
-          <h3 className="text-2xl font-bold text-gray-800 text-center">
-            Skills
-          </h3>
-
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.2 } }
-            }}
-          >
-            {skills.map(s => (
-              <motion.div
-                key={s.name}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  show: { opacity: 1, y: 0 }
-                }}
-              >
-                <SkillCard
-                  {...s}
-                  className="p-5 shadow-md hover:shadow-xl rounded-2xl border border-gray-200 transition-transform transform hover:-translate-y-1"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-
-      <br />
-
-      {/* Add Studies Section */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 space-y-16 mt-10 mb-10">
-        <div className="text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
-            My Studies
-          </h2>
-          <p className="text-lg leading-relaxed text-gray-600 max-w-3xl mx-auto">
-            My academic journey reflects a strong interest in computer applications and problem-solving. As a fresher, I am eager to apply my technical knowledge, learn continuously, and contribute effectively to real-world projects.
-          </p>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2">
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-blue-600">M.C.A – Master of Computer Applications</h3>
-            <p className="text-gray-700 mt-2">Jun 2024 – Present</p>
-            <p className="text-gray-600">Bharathidasan University, Tiruchirappalli</p>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-blue-600">B.C.A – Bachelor of Computer Applications</h3>
-            <p className="text-gray-700 mt-2">Jun 2021 – May 2024</p>
-            <p className="text-gray-600">Adhiparasakthi College of Arts and Science, Vellore</p>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-blue-600">H.S.C – Higher Secondary (12th)</h3>
-            <p className="text-gray-700 mt-2">Jun 2019 – May 2021</p>
-            <p className="text-gray-600">Govt. Higher Secondary School, Vembakkam, Thiruvannamalai</p>
-          </div>
-
-          <div className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-bold text-blue-600">S.S.L.C – Secondary School (10th)</h3>
-            <p className="text-gray-700 mt-2">Jun 2017 – May 2019</p>
-            <p className="text-gray-600">Govt. Higher Secondary School, Vembakkam, Thiruvannamalai</p>
-          </div>
-
-        </div>
-      </div>
-
-
-      {/* ✅ Fixed Navigation Buttons */}
-      <div className="fixed bottom-14 left-0 right-0 flex justify-between px-6 z-20">
-        <NavigationButtons />
-      </div>
-    </section>
-  )
-}
-
-export default About
+export default About;

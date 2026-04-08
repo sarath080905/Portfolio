@@ -1,30 +1,35 @@
 const skills = [
   {
     name: "Frontend Development",
-    level: "Intermediate",
-    note: "Good knowledge of HTML, CSS, Tailwind CSS, JavaScript, and React for building responsive UIs"
-  },
-  {
-    name: "Backend Development",
-    level: "Beginner",
-    note: "Basic understanding of Python for backend logic and SQL for database management"
-  },
-  {
-    name: "Database Management",
-    level: "Beginner",
-    note: "Familiar with SQL queries, relational databases, and basic CRUD operations"
+    icon: "frontend",
+    percent: 80,
+    note: "Tailwind + React UIs that feel smooth, modern, and responsive.",
   },
   {
     name: "UI/UX Design",
-    level: "Beginner",
-    note: "Able to design clean and responsive layouts with Tailwind CSS"
+    icon: "design",
+    percent: 70,
+    note: "Clean typography, spacing, and card-based layouts with great UX.",
+  },
+  {
+    name: "Backend Development",
+    icon: "backend",
+    percent: 55,
+    note: "Python fundamentals + REST-style thinking for real app flows.",
+  },
+  {
+    name: "Database Management",
+    icon: "database",
+    percent: 60,
+    note: "SQL queries, normalization, and CRUD patterns for structured data.",
   },
   {
     name: "Version Control",
-    level: "Intermediate",
-    note: "Proficient in Git and GitHub for project collaboration and code management"
-  }
-]
+    icon: "git",
+    percent: 75,
+    note: "Git/GitHub workflow for collaboration and clean project history.",
+  },
+];
 
-export default skills
+export default skills;
   

@@ -1,40 +1,70 @@
-import { motion } from "framer-motion"
-import projects from '../data/projects'
-import ProjectCard from '../components/ProjectCard'
-import "../App.css";
-import NavigationButtons from "../components/NavigationButtons";
+import { Link } from "react-router-dom";
+import projects from "../data/projects";
+import ProjectCard from "../components/ProjectCard";
+import Reveal from "../components/Reveal";
 
 const Projects = () => {
+  const featured = projects.filter((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
+
   return (
-    <section className="space-y-6">
-      <h2 className="text-2xl font-bold">Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6  ">
-        {projects.map((p, i) => (
-          <motion.div
-            key={p.title}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1, border: "2px solid rgba(96, 165, 250, 1)", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)" }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{
-              scale: 1.02, // subtle zoom
-              boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.12)", // softer shadow
-              borderColor: "rgba(59, 130, 246, 0.5)", // Tailwind blue-400 with 50% opacity
-            }}
-            Transition={{ type: "spring", stiffness: 200, damping: 15 }} // smooth hover
-            className="border border-blue-300 rounded-2xl shadow-sm bg-white overflow-hidden"
-          >
-            <ProjectCard project={p} />
-          </motion.div>
-
-        ))}
-      </div>
-
-       {/* ✅ Fixed Navigation Buttons */}
-        <div className="fixed bottom-14 left-0 right-0 flex justify-between px-6">
-          <NavigationButtons />
+    <section className="space-y-10">
+      <Reveal>
+        <div className="space-y-3">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white">Projects</h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl">
+            A curated set of work with modern UI, responsive layouts, and clean implementation. Featured items are optimized for quick recruiter scanning.
+          </p>
+          <div className="flex gap-3 flex-wrap pt-1">
+            <Link to="/" className="text-sm font-semibold text-indigo-700 hover:text-indigo-900 transition">
+              ← Back to Home
+            </Link>
+            <Link to="/contact" className="text-sm font-semibold text-gray-900 dark:text-gray-100 hover:text-indigo-800 dark:hover:text-indigo-300 transition">
+              Let’s collaborate
+            </Link>
+          </div>
         </div>
+      </Reveal>
+
+      {featured.length ? (
+        <Reveal delay={0.06}>
+          <div className="space-y-6">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white">Featured</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Your strongest, most recruiter-friendly work.</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featured.map((p) => (
+                <ProjectCard key={p.title} project={p} featured />
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      ) : null}
+
+      <Reveal delay={0.12}>
+        <div className="space-y-6">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">All Projects</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Everything in one place.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {others.map((p) => (
+              <ProjectCard key={p.title} project={p} featured={false} />
+            ))}
+
+            {featured.length ? null : projects.map((p) => <ProjectCard key={p.title} project={p} featured={false} />)}
+          </div>
+        </div>
+      </Reveal>
     </section>
-  ) 
-}
-export default Projects
+  );
+};
+
+export default Projects;
