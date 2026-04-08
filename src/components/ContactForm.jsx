@@ -56,6 +56,7 @@ const initial = { name: '', email: '', message: '' }
 const ContactForm = () => {
   const [form, setForm] = useState(initial)
   const [sent, setSent] = useState(false)
+  const [isSending, setIsSending] = useState(false)
   const [errorMsg, setErrorMsg] = useState('')
 
   // Handle input changes
@@ -65,24 +66,27 @@ const ContactForm = () => {
   // Handle form submit
   const onSubmit = e => {
     e.preventDefault()
+    setIsSending(true)
 
     // Send email via EmailJS
     emailjs
       .send(
-        'YOUR_SERVICE_ID',   // 🔧 Replace with EmailJS Service ID
-        'YOUR_TEMPLATE_ID',  // 🔧 Replace with EmailJS Template ID
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
         form,
-        'YOUR_PUBLIC_KEY'    // 🔧 Replace with EmailJS Public Key
+        'YOUR_PUBLIC_KEY'
       )
       .then(
         () => {
           setSent(true)
           setErrorMsg('')
           setForm(initial)
+          setIsSending(false)
         },
         error => {
           console.error('FAILED...', error)
-          setErrorMsg('❌ Failed to send. Please try again later.')
+          setErrorMsg('Failed to send. Please try again later.')
+          setIsSending(false)
         }
       )
   }
@@ -90,19 +94,20 @@ const ContactForm = () => {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm mb-1" htmlFor="name">Name</label>
+        <label className="block text-sm mb-1 text-gray-700 dark:text-gray-200" htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
           value={form.name}
           onChange={onChange}
           required
-          className="w-full border rounded-xl px-3 py-2"
+          placeholder="Your name"
+          className="w-full bg-white/80 border border-gray-200/80 rounded-xl px-3 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500/40 transition dark:bg-slate-900/80 dark:border-slate-700 dark:text-gray-100 dark:placeholder-gray-500"
         />
       </div>
 
       <div>
-        <label className="block text-sm mb-1" htmlFor="email">Email</label>
+        <label className="block text-sm mb-1 text-gray-700 dark:text-gray-200" htmlFor="email">Email</label>
         <input
           id="email"
           type="email"
@@ -110,12 +115,13 @@ const ContactForm = () => {
           value={form.email}
           onChange={onChange}
           required
-          className="w-full border rounded-xl px-3 py-2"
+          placeholder="your@email.com"
+          className="w-full bg-white/80 border border-gray-200/80 rounded-xl px-3 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500/40 transition dark:bg-slate-900/80 dark:border-slate-700 dark:text-gray-100 dark:placeholder-gray-500"
         />
       </div>
 
       <div>
-        <label className="block text-sm mb-1" htmlFor="message">Message</label>
+        <label className="block text-sm mb-1 text-gray-700 dark:text-gray-200" htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
@@ -123,15 +129,30 @@ const ContactForm = () => {
           value={form.message}
           onChange={onChange}
           required
-          className="w-full border rounded-xl px-3 py-2"
+          placeholder="Tell me about your project..."
+          className="w-full bg-white/80 border border-gray-200/80 rounded-xl px-3 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500/40 transition dark:bg-slate-900/80 dark:border-slate-700 dark:text-gray-100 dark:placeholder-gray-500"
         />
       </div>
 
-      <Button type="submit">Send Message</Button>
+      <Button
+        type="submit"
+        disabled={isSending}
+        className="w-full sm:w-auto transition-transform hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {isSending ? "Sending..." : "Send Message"}
+      </Button>
 
       {/* Success / Error Messages */}
-      {sent && <p className="text-sm text-green-600">✅ Thanks! Your message has been sent.</p>}
-      {errorMsg && <p className="text-sm text-red-600">{errorMsg}</p>}
+      {sent && (
+        <p className="text-sm text-green-600" role="status">
+          Thanks! Your message has been sent.
+        </p>
+      )}
+      {errorMsg && (
+        <p className="text-sm text-red-600" role="alert">
+          {errorMsg}
+        </p>
+      )}
     </form>
   )
 }

@@ -1,4 +1,5 @@
-import Button from './Button'
+import { useMemo, useState } from "react";
+import Button from "./Button";
 
 const getImgSrc = (image) => {
   if (!image) return "";
@@ -23,10 +24,10 @@ const ProjectCard = ({ project, featured = false }) => {
 
   return (
     <article
-      className={`group relative rounded-2xl overflow-hidden border bg-white shadow-sm transition duration-300 ${
+      className={`group relative rounded-2xl overflow-hidden border bg-white/90 dark:bg-slate-900/80 shadow-sm transition duration-300 ${
         featured
-          ? "ring-2 ring-indigo-500/60 border-indigo-500/30"
-          : "border-gray-200 hover:border-indigo-500/30 hover:shadow-lg"
+          ? "ring-2 ring-indigo-500/60 border-indigo-500/30 dark:border-indigo-400/30"
+          : "border-gray-200 dark:border-slate-700 hover:border-indigo-500/30 hover:shadow-lg"
       }`}
     >
       <div className="relative">
@@ -41,7 +42,7 @@ const ProjectCard = ({ project, featured = false }) => {
           />
         ) : (
           <div className="aspect-video w-full bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center">
-            <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white/70 border border-white/50 text-gray-900">
+            <span className="px-4 py-2 rounded-full text-sm font-semibold bg-white/70 border border-white/50 text-gray-900 dark:bg-slate-900/70 dark:border-slate-700 dark:text-gray-100">
               {title}
             </span>
           </div>
@@ -60,13 +61,13 @@ const ProjectCard = ({ project, featured = false }) => {
       </div>
 
       <div className="relative z-10 p-5">
-        <h3 className="font-bold text-lg text-gray-900">{title}</h3>
-        <p className="text-sm text-gray-600 mt-2">{description}</p>
+        <h3 className="font-bold text-lg text-gray-900 dark:text-white">{title}</h3>
+        <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{description}</p>
 
         {tech?.length ? (
           <div className="flex flex-wrap gap-2 mt-4">
             {tech.map((t) => (
-              <span key={t} className="text-xs px-2 py-1 rounded-full border border-gray-200 bg-white/70">
+              <span key={t} className="text-xs px-2 py-1 rounded-full border border-gray-200 bg-white/70 dark:border-slate-700 dark:bg-slate-900/70 dark:text-gray-100">
                 {t}
               </span>
             ))}
@@ -86,7 +87,7 @@ const ProjectCard = ({ project, featured = false }) => {
               Live Demo
             </Button>
           ) : nodemo ? (
-            <div className="text-xs px-3 py-2 rounded-xl bg-white/70 border border-white/60 text-gray-800">
+            <div className="text-xs px-3 py-2 rounded-xl bg-white/70 border border-white/60 text-gray-800 dark:bg-slate-900/80 dark:border-slate-700 dark:text-gray-100">
               {nodemo}
             </div>
           ) : null}

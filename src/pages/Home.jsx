@@ -1,4 +1,3 @@
-// Home.jsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import projects from "../data/projects";
@@ -8,389 +7,151 @@ import ProfileAvatar from "../components/ProfileAvatar";
 import SkillsBars from "../components/SkillsBars";
 import TypingText from "../components/TypingText";
 import Reveal from "../components/Reveal";
-import "../App.css";
 
 const Home = () => {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
-
   const stats = [
-    { value: "10+ ", label: "Projects Completed" },
-    { value: "React + ", label: "Tailwind UI Delivery" },
-    { value: "Fast ", label: "Performance Mindset" },
-    { value: "Clean ", label: "Code & UX Focus" },
+    { value: "10+", label: "Projects Built" },
+    { value: "100%", label: "Responsive Layouts" },
+    { value: "Fast", label: "UX-first Delivery" },
+    { value: "24h", label: "Quick Collaboration" },
   ];
 
   const testimonials = [
-    {
-      name: "Recruiter (Sample)",
-      role: "Hiring Manager",
-      quote:
-        "The UI polish and structure stood out immediately. The projects read like real product work, not just coursework.",
-    },
-    {
-      name: "Client (Sample)",
-      role: "Startup Founder",
-      quote:
-        "Clear communication and thoughtful design. The screens looked premium, and the app felt responsive across devices.",
-    },
-    {
-      name: "Team Lead (Sample)",
-      role: "Frontend Mentor",
-      quote:
-        "Great attention to detail—spacing, typography, and interaction states were handled professionally.",
-    },
+    { name: "Recruiter (Sample)", role: "Hiring Manager", quote: "Strong visual hierarchy and premium polish. Projects are easy to scan in seconds." },
+    { name: "Client (Sample)", role: "Founder", quote: "Clean implementation, great communication, and impressive mobile responsiveness." },
+    { name: "Mentor (Sample)", role: "Frontend Lead", quote: "Consistent spacing, typography, and interaction design across sections." },
   ];
 
   const achievements = [
-    {
-      title: "M.C.A – Master of Computer Applications",
-      issuer: "Bharathidasan University",
-      date: "Jun 2024 – Present",
-      note: "Building stronger fundamentals and applying them to modern web UI.",
-    },
-    {
-      title: "B.C.A – Bachelor of Computer Applications",
-      issuer: "Adhiparasakthi College of Arts and Science",
-      date: "Jun 2021 – May 2024",
-      note: "Grounded understanding of programming, databases, and real-world problem solving.",
-    },
-    {
-      title: "UI/UX + Frontend Projects",
-      issuer: "Personal Portfolio",
-      date: "Ongoing",
-      note: "Shipped multiple responsive apps with Tailwind, React, and Framer Motion.",
-    },
-  ];
-
-  const orbs = [
-    { size: 340, x: "8%", y: "20%", duration: 18, delay: 0 },
-    { size: 260, x: "70%", y: "10%", duration: 22, delay: 2 },
-    { size: 300, x: "30%", y: "70%", duration: 20, delay: 1 },
-    { size: 220, x: "85%", y: "65%", duration: 24, delay: 3 },
+    { title: "M.C.A (Ongoing)", issuer: "Bharathidasan University", date: "2024 - Present" },
+    { title: "B.C.A Completed", issuer: "Adhiparasakthi College", date: "2021 - 2024" },
+    { title: "Frontend + UI/UX Projects", issuer: "Personal Portfolio", date: "Ongoing" },
   ];
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/40 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10">
-      {/* Animated gradient */}
+    <div className="relative overflow-hidden rounded-3xl border border-white/50 bg-white/50 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/40">
       <motion.div
         initial={{ backgroundPosition: "0% 50%" }}
         animate={{ backgroundPosition: "100% 50%" }}
         transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 bg-gradient-to-r from-indigo-500/25 via-purple-500/20 to-pink-500/20 opacity-70"
-        style={{ backgroundSize: "200% 200%" }}
-        aria-hidden="true"
+        className="absolute inset-0 opacity-60 dark:opacity-35 bg-[linear-gradient(120deg,rgba(99,102,241,0.2),rgba(168,85,247,0.2),rgba(236,72,153,0.2))]"
+        style={{ backgroundSize: "180% 180%" }}
       />
 
-      {/* Subtle floating orbs */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-        {orbs.map((o, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full blur-3xl opacity-20"
-            style={{
-              width: o.size,
-              height: o.size,
-              left: o.x,
-              top: o.y,
-              background:
-                "radial-gradient(circle at 30% 30%, rgba(99,102,241,0.45), rgba(236,72,153,0.1), transparent 70%)",
-            }}
-            animate={{ y: [0, -60, 0], x: [0, 18, 0] }}
-            transition={{ duration: o.duration, repeat: Infinity, ease: "easeInOut", delay: o.delay }}
-          />
-        ))}
-      </div>
-
-      <div className="relative z-10 px-4 sm:px-6 lg:px-12 py-12 sm:py-16 lg:py-20">
-        {/* Hero */}
-        <section aria-labelledby="hero-heading">
-          <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-            <Reveal>
-              <div className="space-y-5">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 border border-white/50 text-sm font-semibold text-indigo-800">
-                  <span className="h-2 w-2 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600" />
-                  Frontend-first • Tailwind + React • Recruiter-ready UI
-                </div>
-
-                <h1 id="hero-heading" className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900">
-                  I build <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">modern web applications</span>
-                  that look premium, feel fast, and convert.
-                </h1>
-
-                <p className="text-gray-700 text-lg lg:text-xl">
-                  <TypingText
-                    words={[
-                      "I build modern web applications.",
-                      "I design clean, card-based UI.",
-                      "I ship with performance in mind.",
-                    ]}
-                    speed={35}
-                    pause={800}
-                  />
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
-                  <Link
-                    to="/projects"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white
-                               bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
-                               hover:opacity-95 transition shadow-lg shadow-indigo-500/20"
-                  >
-                    View Projects
-                  </Link>
-
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-gray-900
-                               bg-white/70 border border-gray-200 hover:bg-white transition"
-                  >
-                    Hire Me
-                  </Link>
-
-                  <a
-                    href="https://drive.google.com/file/d/1wRC5t5oipV5Z1Wai7x7qrNNwoiPlbJhs/view?usp=drive_link"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-gray-900
-                               bg-white/40 border border-gray-200 hover:bg-white transition"
-                  >
-                    View Resume
-                  </a>
-                </div>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {["React", "Tailwind", "Framer Motion", "UI/UX", "Performance"].map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-3 py-2 rounded-full bg-white/60 border border-white/50 text-gray-800"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.15} className="lg:justify-self-end">
-              {featuredProjects[0] ? (
-                <div className="w-full max-w-xl">
-                  <ProjectCard project={featuredProjects[0]} featured />
-                </div>
-              ) : (
-                <div className="bg-white/60 border border-white/50 rounded-2xl p-6">
-                  No featured project found.
-                </div>
-              )}
-            </Reveal>
-          </div>
-        </section>
-
-        {/* Featured Projects */}
-        <Reveal className="mt-12" delay={0.05}>
-          <section aria-labelledby="featured-projects">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex items-end justify-between gap-4">
-                <div>
-                  <h2 id="featured-projects" className="text-2xl sm:text-3xl font-bold text-gray-900">
-                    Featured Projects
-                  </h2>
-                  <p className="text-gray-600 mt-2 max-w-2xl">
-                    Hand-picked work that demonstrates modern UI thinking, clean code structure, and real user flows.
-                  </p>
-                </div>
-                <Link
-                  to="/projects"
-                  className="text-sm font-semibold text-indigo-700 hover:text-indigo-900 transition"
-                >
-                  See all →
-                </Link>
-              </div>
-
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {featuredProjects.map((p) => (
-                  <ProjectCard key={p.title} project={p} featured={true} />
-                ))}
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* Stats */}
-        <Reveal className="mt-10" delay={0.1}>
-          <section aria-labelledby="stats-heading">
-            <div className="max-w-6xl mx-auto">
-              <h2 id="stats-heading" className="sr-only">
-                Portfolio stats
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="rounded-2xl bg-white/60 border border-white/50 backdrop-blur p-5 shadow-sm"
-                  >
-                    <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">{s.value}</p>
-                    <p className="text-sm text-gray-600 mt-1">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* About */}
-        <Reveal className="mt-12" delay={0.12}>
-          <section aria-labelledby="about-heading">
-            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 items-start">
-              <div>
-                <h2 id="about-heading" className="text-2xl sm:text-3xl font-bold text-gray-900">
-                  About
-                </h2>
-                <p className="text-gray-600 mt-3 max-w-xl">
-                  I’m a frontend-focused developer who loves turning requirements into polished interfaces—fast, responsive, and accessible.
-                </p>
-
-                <div className="mt-6 flex items-center gap-4">
-                  <ProfileAvatar name="Sarathkumar" />
-                  <div>
-                    <p className="font-bold text-gray-900 text-lg">Sarathkumar</p>
-                    <p className="text-sm text-gray-600">Frontend Developer • UI/UX-minded</p>
-                  </div>
-                </div>
-
-                <div className="mt-6 grid gap-4">
-                  <div className="rounded-2xl bg-white/60 border border-white/50 p-5">
-                    <h3 className="font-semibold text-gray-900">What I do</h3>
-                    <ul className="mt-3 space-y-2 text-gray-700 text-sm">
-                      <li>Build modern, recruiter-ready UI with React + Tailwind.</li>
-                      <li>Design consistent spacing, typography, and interaction states.</li>
-                      <li>Deliver responsive layouts that work great on mobile.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div className="rounded-2xl bg-white/60 border border-white/50 p-6 backdrop-blur">
-                  <h3 className="font-semibold text-gray-900">Why Hire Me</h3>
-                  <p className="text-gray-600 mt-2 text-sm">
-                    Hiring me means you get UI polish, clean implementation, and quick iteration.
-                  </p>
-                  <ul className="mt-4 space-y-2 text-gray-700 text-sm">
-                    <li>Pixel-focused design decisions (spacing, hierarchy, hover states).</li>
-                    <li>Performance-aware UI (lazy loading + subtle motion).</li>
-                    <li>Clear communication and collaboration-ready delivery.</li>
-                  </ul>
-                  <div className="mt-5">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center justify-center px-5 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 transition"
-                    >
-                      Hire Me
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* Skills */}
-        <Reveal className="mt-12" delay={0.14}>
-          <section aria-labelledby="skills-heading">
-            <div className="max-w-6xl mx-auto">
-              <h2 id="skills-heading" className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Skills
-              </h2>
-              <p className="text-gray-600 mt-3 max-w-2xl">
-                A quick snapshot of what I’m strongest at today, and what I’m actively improving.
+      <div className="relative z-10 px-4 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-20">
+        <section className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+          <Reveal>
+            <div className="space-y-6">
+              <span className="inline-flex items-center gap-2 rounded-full border border-indigo-200/80 bg-indigo-50/80 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-400/30 dark:bg-indigo-500/10 dark:text-indigo-200">
+                Premium Frontend Developer
+              </span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                I craft <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">high-converting digital experiences</span> that recruiters remember instantly.
+              </h1>
+              <p className="text-lg text-gray-700 dark:text-gray-300">
+                <TypingText words={["Modern UI. Smooth UX. Fast performance.", "Card-based design with strong visual hierarchy.", "Built with React, Tailwind, and product thinking."]} />
               </p>
-
-              <div className="mt-8">
-                <SkillsBars skills={skills.slice(0, 5)} />
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* Testimonials */}
-        <Reveal className="mt-12" delay={0.16}>
-          <section aria-labelledby="testimonials-heading">
-            <div className="max-w-6xl mx-auto">
-              <h2 id="testimonials-heading" className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Testimonials
-              </h2>
-              <p className="text-gray-600 mt-3 max-w-2xl">
-                Sample testimonials (replace later with real feedback).
-              </p>
-
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                {testimonials.map((t) => (
-                  <div
-                    key={t.name}
-                    className="rounded-2xl bg-white/60 border border-white/50 backdrop-blur p-6 shadow-sm"
-                  >
-                    <p className="text-sm font-semibold text-indigo-800">{t.role}</p>
-                    <p className="font-bold text-gray-900 mt-1">{t.name}</p>
-                    <p className="text-gray-700 mt-4 text-sm leading-relaxed">“{t.quote}”</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* Achievements / Certifications */}
-        <Reveal className="mt-12" delay={0.18}>
-          <section aria-labelledby="achievements-heading">
-            <div className="max-w-6xl mx-auto">
-              <h2 id="achievements-heading" className="text-2xl sm:text-3xl font-bold text-gray-900">
-                Achievements / Certifications
-              </h2>
-              <p className="text-gray-600 mt-3 max-w-2xl">
-                A focused view of your learning journey and growth milestones.
-              </p>
-
-              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                {achievements.map((a) => (
-                  <div
-                    key={a.title}
-                    className="rounded-2xl bg-white/60 border border-white/50 backdrop-blur p-6 shadow-sm"
-                  >
-                    <p className="text-sm font-semibold text-gray-900">{a.title}</p>
-                    <p className="text-sm text-gray-600 mt-1">{a.issuer}</p>
-                    <p className="text-xs text-gray-500 mt-2">{a.date}</p>
-                    <p className="text-sm text-gray-700 mt-3 leading-relaxed">{a.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </Reveal>
-
-        {/* Final CTA */}
-        <Reveal className="mt-12 mb-4" delay={0.2}>
-          <section aria-labelledby="final-cta-heading">
-            <div className="max-w-6xl mx-auto rounded-3xl bg-white/60 border border-white/50 backdrop-blur p-7 sm:p-10 shadow-sm">
-              <h2 id="final-cta-heading" className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-                Ready to build something premium?
-              </h2>
-              <p className="text-gray-600 mt-3 max-w-2xl">
-                If you need modern UI, responsive layout, and smooth UX, let’s talk. I respond quickly and iterate fast.
-              </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-7 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 transition"
-                >
-                  Hire Me
-                </Link>
-                <Link
-                  to="/projects"
-                  className="inline-flex items-center justify-center px-7 py-3 rounded-xl font-semibold text-gray-900 bg-white/70 border border-gray-200 hover:bg-white transition"
-                >
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Link to="/projects" className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:opacity-95 transition">
                   View Projects
                 </Link>
+                <Link to="/contact" className="inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold border border-gray-200 bg-white/80 text-gray-900 hover:bg-white transition dark:border-slate-700 dark:bg-slate-900/80 dark:text-gray-100">
+                  Hire Me
+                </Link>
               </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>{featuredProjects[0] ? <ProjectCard project={featuredProjects[0]} featured /> : null}</Reveal>
+        </section>
+
+        <Reveal className="mt-12">
+          <section className="max-w-6xl mx-auto">
+            <div className="flex items-end justify-between">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
+              <Link to="/projects" className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">See all</Link>
+            </div>
+            <div className="mt-7 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {featuredProjects.map((p) => <ProjectCard key={p.title} project={p} featured />)}
+            </div>
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-10">
+          <section className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {stats.map((s) => (
+              <div key={s.label} className="rounded-2xl border border-white/50 bg-white/65 p-5 dark:border-slate-700 dark:bg-slate-900/60">
+                <p className="text-2xl font-extrabold text-gray-900 dark:text-white">{s.value}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{s.label}</p>
+              </div>
+            ))}
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-12">
+          <section className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
+            <div className="rounded-2xl border border-white/50 bg-white/65 p-6 dark:border-slate-700 dark:bg-slate-900/60">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">About Me</h2>
+              <p className="mt-3 text-gray-600 dark:text-gray-300">Frontend-focused developer with strong UI/UX instincts and clean execution.</p>
+              <div className="mt-5 flex items-center gap-4">
+                <ProfileAvatar name="Sarathkumar" />
+                <div>
+                  <p className="font-bold text-gray-900 dark:text-white">Sarathkumar</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">Frontend Developer</p>
+                </div>
+              </div>
+              <ul className="mt-5 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                <li>- Premium, card-based interfaces</li>
+                <li>- Accessibility and responsive-first layout</li>
+                <li>- Smooth animation and interaction quality</li>
+              </ul>
+            </div>
+            <div className="rounded-2xl border border-white/50 bg-white/65 p-6 dark:border-slate-700 dark:bg-slate-900/60">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Why Hire Me</h3>
+              <ul className="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-200">
+                <li>- I design and implement with production quality.</li>
+                <li>- I focus on readability, contrast, and visual hierarchy.</li>
+                <li>- I collaborate quickly and iterate based on feedback.</li>
+              </ul>
+              <Link to="/contact" className="mt-6 inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">Hire Me</Link>
+            </div>
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-12">
+          <section className="max-w-6xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Skills</h2>
+            <p className="mt-2 text-gray-600 dark:text-gray-300">Skill levels shown visually with progress bars.</p>
+            <div className="mt-6"><SkillsBars skills={skills.slice(0, 6)} /></div>
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-12">
+          <section className="max-w-6xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Testimonials</h2>
+            <div className="mt-6 grid md:grid-cols-3 gap-6">
+              {testimonials.map((item) => (
+                <div key={item.name} className="rounded-2xl border border-white/50 bg-white/65 p-6 dark:border-slate-700 dark:bg-slate-900/60">
+                  <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">{item.role}</p>
+                  <p className="mt-1 font-semibold text-gray-900 dark:text-white">{item.name}</p>
+                  <p className="mt-3 text-sm text-gray-700 dark:text-gray-200">"{item.quote}"</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </Reveal>
+
+        <Reveal className="mt-12">
+          <section className="max-w-6xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Achievements & Certifications</h2>
+            <div className="mt-6 grid md:grid-cols-3 gap-6">
+              {achievements.map((item) => (
+                <div key={item.title} className="rounded-2xl border border-white/50 bg-white/65 p-6 dark:border-slate-700 dark:bg-slate-900/60">
+                  <p className="font-semibold text-gray-900 dark:text-white">{item.title}</p>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">{item.issuer}</p>
+                  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">{item.date}</p>
+                </div>
+              ))}
             </div>
           </section>
         </Reveal>
